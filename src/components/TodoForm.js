@@ -1,9 +1,10 @@
 import React from "react";
 
 class TodoForm extends React.Component {
+
+
     constructor() {
         super();
-    
         this.state = {
           input:""
         }
@@ -14,6 +15,7 @@ class TodoForm extends React.Component {
         this.setState({
           input: e.target.value
         });
+        console.log(e.target.value)
       };
     
       // class property to submit form
@@ -26,11 +28,10 @@ class TodoForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-            {/*  This is an uncontrolled component 😬 We want it to be controlled by state */}
-            <input onChange={this.handleChanges}type="text" name="item" />
+            <input onChange={this.handleChanges} type="text" task="item" placeholder='...todo' />
             <button>Add Todo</button>
           </form>
         );
-      }
+      }    
 }
 export default TodoForm;

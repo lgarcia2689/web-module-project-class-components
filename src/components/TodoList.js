@@ -7,7 +7,7 @@ import Todo from './Todo'
 const TodoList = props => {
 
     const handleClick = () => {
-        props.clearPurchased();
+        props.clearCompleted();
       }
     
     return(

@@ -1,9 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
-
-
 
 const goals = [
     {
@@ -29,10 +26,12 @@ class App extends React.Component {
       goals: goals
     }
   }
+
   toggleItem = (id)=> {
     const newGoals = this.state.goals.map(item => {
-      if (item.id === id) {
+      if (item.id === id) { 
         return( {
+          
           ...item,
           completed: !item.completed
         });
@@ -46,12 +45,11 @@ class App extends React.Component {
     });
   };
 
-
   addItem = (itemTask) => {
     this.setState({
-      goal:[...this.state.goals, {
+      goals:[...this.state.goals, {
         task:itemTask,
-        id:this.state.goals.length,
+        id:Date.now(),
         completed:false
       }]
     })
@@ -63,18 +61,18 @@ class App extends React.Component {
     })
   };
 
-  
-
-
   render() {
     return (
       <div className="App">
         <div className="header">
            <h1>Todo List: MVP</h1>
            <TodoForm addItem={this.addItem}/>
+           
          </div>
         <TodoList clearCompleted = {this.clearCompleted} toggleItem = {this.toggleItem} goals={this.state.goals}/>
+        
       </div>
+      
     );
   }
 }
